@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-import siderBarInfo from '../../servives/siderBarInfo.js'
+import siderBarInfo from '../../services/siderBarInfo.js'
 
 export default class SilderBar extends Component{
 	constructor(){
@@ -9,6 +9,7 @@ export default class SilderBar extends Component{
 		
 	}
 	render(){
+		
 		let SliderBarStyle = {
 			transform : this.props.show ? 'none' : 'translateX(-101%)'
 		}

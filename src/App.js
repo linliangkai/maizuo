@@ -1,9 +1,11 @@
 import React , {Component} from 'react'
 import { BrowserRouter , Route} from 'react-router-dom'
 
-import SliderBar from './views/common/SliderBar.js'
-import Appheader from './views/common/Appheader.js'
+import SliderBar from './views/common/SliderBar.js'//引入侧边栏
+import Appheader from './views/common/Appheader.js'//引入头部
+import Details from './views/common/details.js'//引入详情
 
+//引入侧边栏中的各个页面
 import Home from './pages/Home.js'
 import Movies from './pages/Movies.js'
 import Cinema from './pages/cinema.js'
@@ -27,9 +29,10 @@ export default class App extends Component{
 		return(
 			<BrowserRouter>
 				<div>
+					{/*头部*/}
 					<Appheader title={this.state.headerTitle} menuHandle={this.menuHandle.bind(this)}></Appheader>
 					
-					
+					{/*侧边栏*/}
 					<Route path="/" render={({history,location})=>{
 						return <SliderBar 
 								history={history} 
@@ -38,8 +41,11 @@ export default class App extends Component{
 								hideHandle={this.menuHandle.bind(this)}
 								></SliderBar>
 					}}/>
+					{/*侧边栏连接*/}
 					<Route path="/" exact component={Home}/>
 					<Route path="/movies" component={Movies}/>
+					{/*影片详情*/}
+					<Route path="/details/:id" component={Details}/>
 					<Route path="/cinema" component={Cinema}/>
 					<Route path="/shop" component={Shop}/>
 					<Route path="/me" component={Me}/>
@@ -57,7 +63,5 @@ export default class App extends Component{
 			this.setState({headerTitle})
 		}
 	}
-	changePage(){
-		this.setState({showBar: false})
-	}
+	
 }

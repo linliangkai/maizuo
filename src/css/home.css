@@ -1,0 +1,129 @@
+.Home{
+	overflow: auto;
+}
+
+#home .home-banner{
+    width: 100%;
+}
+#home .home-banner img{
+    width: 100%;
+}
+
+.list-banner{
+	padding-top: 18px;
+}
+
+.list-banner li{
+	margin: 0 17px 17px 17px;
+	box-shadow: 0.5px 0.5px 1px #a8a8a8;
+	background-color: #f9f9f9;
+	overflow: hidden;
+}
+.list-banner a{
+    display: block;
+    height: 224px;
+}
+
+.list-banner li img{
+	width: 100%;
+}
+
+.list-banner li .text_left{
+	height: 50px;
+    padding-right: 0;
+    padding-top: 13px;
+    padding-left: 28px;
+    float: left;
+}
+
+.list-banner li .text_left div:nth-child(1) {
+	font-size: 12px;
+    line-height: 15px;
+    user-select: text;
+}
+.list-banner li .text_left div:nth-child(2) {
+	font-size: 8px;
+    color: #9a9a9a;
+    line-height: 15px;
+}
+
+.list-banner li .text_right{
+	float: right;
+}
+
+.list-banner li .text_right span{
+	color: #f78360;
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    margin-right: 15px;
+    font-size: 18px;
+}
+.home-list{
+    background: #ebebeb
+}
+
+.home-list .more-button{
+    width: 160px;
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    margin: 10px auto 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #616161;
+    cursor: pointer;
+}
+
+.dividing-line{
+    margin: 30px 0;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.dividing-line .upcoming{
+    width: 65px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #a7a7a7;
+    color: white;
+    font-size: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: -10px;
+}
+
+.list-foot li{
+    margin: 0 17px 17px 17px;
+    background-color: #f9f9f9;
+    box-shadow: 0.5px 0.5px 1px #a8a8a8;
+    overflow: hidden;
+}
+.list-foot a{
+    display: block;
+}
+
+.list-foot li img{
+    width: 100%;
+}
+
+.list-foot li .text_left{
+	height: 25px;
+    padding-right: 0;
+    padding-top: 10px;
+    padding-left: 28px;
+    float: left;
+    font-size: 12px;
+    line-height: 15px;
+    width: 60%;
+}
+
+.list-foot li .text_right{
+	font-size: 10px;
+    color: RGB(245, 162, 125);
+    line-height: 15px;
+    padding-right: 0;
+    padding-top: 10px;
+    padding-left: 28px;
+}

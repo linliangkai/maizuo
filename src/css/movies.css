@@ -1,0 +1,115 @@
+.page .film-list-wrap{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #f9f9f9;
+    min-height: 100%;
+}
+
+.tab{
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: 1px solid #fe6e00;
+}
+
+.tab .tab_1,.tab_2{
+    flex: 1;
+}
+.tab_1,.tab_2{
+    width: 145px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    line-height: 46px;
+    color: #6a6a6a
+}
+.active{
+    border-bottom: 5px solid #fe6e00;
+}
+
+.list_hot li a{
+    display: block;
+}
+
+.list_hot li .film-item{
+    padding: 20px 0;
+    width: 100%;
+    border-bottom: 1px dashed #c9c9c9;  
+}
+
+.list_hot li .film-item-img{
+    width: 60px;
+    float: left;
+}
+.list_hot li .film-item-img img{
+    width: 100%;
+}
+
+.list_hot li .film-item .film-desc{
+    padding-left: 15px;
+    display: inline-block;
+    width: 74%;
+}
+.list_hot li .film-item .film-desc>div{
+    overflow: hidden;
+}
+
+.list_hot li .film-item .film-desc>div .film-name{
+    float: left;
+    font-size: 16px;
+    line-height: 32px;
+    color: #000;
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list_hot li .film-item .film-desc>div .film-grade{
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    color: #fc7103;
+}
+.list_hot li .film-item .film-desc>div .film-right{
+    float: right;
+    line-height: 29px;
+    color: #c6c6c6;
+}
+
+.film-item .film-desc .film-intro{
+    height: 24px;
+    line-height: 24px;
+    color: #8e8e8e;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block;
+}
+.film-item .film-desc .film-counts{
+    line-height: 24px;
+    color: #8e8e8e;
+    font-size: 12px;
+}
+.film-item .film-desc .film-counts span:nth-child(1){
+    color: #8aa2bf;
+}
+.film-item .film-desc .film-counts span:nth-child(2){
+    width: 100px;
+    display: inline-block;
+}
+.film-item .film-desc .film-counts span:nth-child(3){
+    color: #8aa2bf;
+}
+
+.film-item .film-desc .film-counts1 span:nth-child(1){
+    width: 100px;
+    display: inline-block;
+    line-height: 24px;
+    font-size: 12px;
+    color: #ffb375;
+}
+.film-item .film-desc .film-counts1 span:nth-child(2){
+    line-height: 24px;
+    font-size: 12px;
+    color: #ffb375;
+}

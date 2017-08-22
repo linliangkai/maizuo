@@ -1,0 +1,42 @@
+.card{
+    background:white;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+}
+
+
+.card .list{
+    height: 49px;
+    line-height: 45px;
+    border-bottom: 1px solid #ff7100;
+}
+
+.list li{
+    float: left;
+    width: 50%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.list li.active{
+    color: #ff7100;
+    border-bottom: 4px solid #ff7100;
+}
+
+input{
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 20px;
+    font-size: 14px;
+}
+
+.card_query_form>from span{
+    font-size: 14px;
+    padding-left: 10px;
+}
