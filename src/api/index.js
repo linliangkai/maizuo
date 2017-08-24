@@ -12,11 +12,21 @@ const moviesApi = '/v4/api/film/coming-soon?page=1&count=7'
 //请求详情页面的数据
 //3828?__t=1503307712768
 const detailsApi = '/v4/api/film/'
+//影院数据
+const cinemaApi = '/v4/api/cinema?__t=1503369634722'
+//请求city的数据
+//
+const cityApi = '/v4/api/city?__t=1503454258519'
+//商城里的数据请求
+const shopApi = '/api/ad/list'
 export default {
     homeBannerApi,
     homeListApi,
     homeList2Api,
     moviesHotApi,
     moviesApi,
-    detailsApi
+    detailsApi,
+    cinemaApi,
+    cityApi,
+    shopApi
 }

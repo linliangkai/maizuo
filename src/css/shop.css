@@ -1,0 +1,110 @@
+.swiper-wrapper .swiper-slide img{
+    width: 100%;
+}
+.page{
+    background: #f2f2f2;
+}
+.page .shop-list{
+    background-color: #fff;
+    padding: 15px 0;
+}
+.page .shop-list li{
+    width: 25%;
+    height: 100%;
+    margin: 8px 0;
+    text-align: center;
+    display: inline-block;
+}
+
+.page .shop-list li img{
+    width: 40px;
+    margin: 0 auto;
+}
+
+.page .shop-list li .shop-title{
+    font-size: 12px;
+    text-align: center;
+    color: #323232;
+}
+
+.page .active-contain{
+    padding: 0 10px;
+    display: flex;
+    box-sizing: border-box;
+}
+.page .active-contain .active-left{
+    flex:1;
+    padding:10px 0 0 0;
+}
+.page .active-contain .active-left img{
+    width: 100%;
+}
+
+.subject .subject-center{
+    padding: 10px;
+    background: #fff;
+    margin: 10px 0;
+}
+.subject .subject-center>div{
+    width: 100%;
+}
+.subject .subject-center>div img{
+    width: 100%;
+}
+
+.pic-list{
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.pic-list ul li{
+    display: inline-block;
+    width: 30%;
+}
+.pic-list ul li .pic-area{
+    width: 85px;
+    height: 85px;
+}
+.pic-list ul li .pic-area img{
+    width: 100%;
+}
+
+.pic-list ul li .control-name{
+    font-size: 12px;
+    color: #323232;
+}
+.pic-list ul li .control-price{
+    font-size: 13px;
+    color: #ff6640;
+}
+
+.pic-list ul>div{
+    line-height: 151px;
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+}
+.pic-list ul>div>span{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+h2{
+    height: 33px;
+    background-color: #f2f2f2;
+    line-height: 33px;
+    font-size: 13px;
+    text-align: center;
+    color: #323232;
+    margin-bottom: -5px;
+}

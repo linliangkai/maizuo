@@ -31,7 +31,7 @@ export default class Movies extends Component {
 									{
 										this.state.moviesHotList.map((item,index)=>{
 											return(
-												<li key={index} onClick={this.moviesAction.bind(this)}>
+												<li key={index}>
 													<Link to={{
 														pathname:'/details/' + item.id,
 														state:{
@@ -105,7 +105,7 @@ export default class Movies extends Component {
 				</div>
 		)
 	}
-
+	//tab栏切换
 	btnAction() {
 		document.getElementsByClassName('tab_1')[0].className = "tab_1 active"
 		document.getElementsByClassName('tab_2')[0].className = "tab_2"
@@ -119,9 +119,6 @@ export default class Movies extends Component {
 
 		this.setState({ isShow: true })
 		this.setState({ isshow: false })
-	}
-	moviesAction(){
-		
 	}
 	componentWillMount(){
 		//请求影片页面热映电影

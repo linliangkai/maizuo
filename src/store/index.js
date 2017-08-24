@@ -1,21 +1,20 @@
 import {createStore } from 'redux'
 
 let reducer = function(state,action){
-	console.log(state)
-	console.log(action)
-	
-	if (state == undefined) {
+	// console.log(state)
+	// console.log(action)
+	if (state == null) {
 		state = {
-			username:'张三',
-			password:'123456'
+			//初始值为深圳
+			city:'深圳'
 		}
 	}
 	
-	if (action.type == 'changename') {
-		state.username = action.val
+	if (action.type == 'changeCity') {
+		state.city = action.val
 	}
 	
-	console.log(state)
+	// console.log(state)
 	return state
 }
 

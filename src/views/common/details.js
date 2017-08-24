@@ -37,10 +37,11 @@ export default class Details extends Component{
 		.then((res)=>{
 			console.log(res)
 			this.setState({DetailsList:res})
-
+			//premiereAt数据的时间戳
+			//获取月份及日期
 			var Month = res.premiereAt.getMonth()+1
 			var Date  = res.premiereAt.getDate()
-
+			
 			this.setState({Month})
 			this.setState({Date})
 		})

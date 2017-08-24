@@ -103,7 +103,7 @@ html,body,#app{
 
 
 #city.page{
-	background: lightgreen;
+	background: white;
 }
 #city.page.leave{
 	 transform: translateY(-100%);  

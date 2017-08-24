@@ -126,6 +126,7 @@ export default class Home extends Component{
 	}
 
 	componentDidMount(){
+		//轮播图
 		bannerSwiper = new Swiper(this.refs.banner,{})
 	}
 }

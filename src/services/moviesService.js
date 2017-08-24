@@ -27,7 +27,7 @@ function getmoviesApi(){
         })
     })
 }
-//影片下的详情页面
+//影片下的详情页面 及 首页详情
 function getdetailsApi(id){
     return new Promise((resolve,reject)=>{
         axios.get(`${API.detailsApi}${id}?__t${new Date().getTime()}`)
