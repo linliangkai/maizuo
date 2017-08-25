@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import '../css/movies.css'
 
 import moviesService from '../services/moviesService.js'
+import store from '../store'
 
 var myScroll = null;
 
@@ -11,8 +12,8 @@ export default class Movies extends Component {
 	constructor() {
 		super();
 		this.state = {
-			isshow: true,
-			isShow: false,
+			isshow: store.getState().isshow,
+			isShow: store.getState().isShow,
 			moviesHotList:[],
 			moviesList:[]
 		}
@@ -21,7 +22,7 @@ export default class Movies extends Component {
 		let style1 = { display: this.state.isshow ? 'block' : 'none' }
 		let style2 = { display: this.state.isShow ? 'block' : 'none' }
 		return (
-				<div class="page" ref="box">
+				<div class="page" ref="box" id="movies">
 					<div class="wrap">
 						<div class="film-list-wrap">
 							<div class="tab">
@@ -111,18 +112,27 @@ export default class Movies extends Component {
 	}
 	//tab栏切换
 	btnAction() {
-		document.getElementsByClassName('tab_1')[0].className = "tab_1 active"
+		document.getElementsByClassName('tab_1')[0].className = "tab_1 active" 
 		document.getElementsByClassName('tab_2')[0].className = "tab_2"
+		
 
-		this.setState({ isShow: false })
-		this.setState({ isshow: true })
+		this.setState({ isShow: false },function(){
+			myScroll.refresh()
+		})
+		this.setState({ isshow: true },function(){
+			myScroll.refresh()
+		}) 
 	}
 	btn1Action() {
 		document.getElementsByClassName('tab_2')[0].className = "tab_2 active"
 		document.getElementsByClassName('tab_1')[0].className = "tab_1"
 
-		this.setState({ isShow: true })
-		this.setState({ isshow: false })
+		this.setState({ isShow: true }, function() {
+			myScroll.refresh()
+		})
+		this.setState({ isshow: false }, function() {
+			myScroll.refresh()
+		})
 	}
 	componentWillMount(){
 		//请求影片页面热映电影
@@ -133,37 +143,63 @@ export default class Movies extends Component {
 			myScroll.refresh()
 		})
 		//请求影片页面即将上映电影
-		moviesService.getmoviesApi()
+		moviesService.getmoviesApi(1)
 		.then((res)=>{
 			// console.log(res)
 			// console.log('123')
 			this.setState({moviesList:res})
 		})
 
-		
 	}
 
 	componentDidMount(){
+		
+		if(this.state.isShow){
+			document.getElementsByClassName('tab_2')[0].className = "tab_2 active"
+			document.getElementsByClassName('tab_1')[0].className = "tab_1"
+		}
+
 		myScroll = new IScroll(this.refs.box, {
-			bounce: true
+			bounce: false
 		});
 		//监听滚动，刷新滚动视图
+		let i = 1; 
+		let j = 1;
 		myScroll.on('scrollEnd', ()=>{
-			console.log(myScroll.scrollerHeight)
-			console.log(myScroll.y)
-			console.log(myScroll.maxScrollY)
-			console.log(myScroll)
+			// console.log(myScroll.scrollerHeight)
+			// console.log(myScroll.y)
+			// console.log(myScroll.maxScrollY)
+			// console.log(myScroll)
 			myScroll.refresh()
-			let i = 1;
-			if(myScroll.y && i <= 8){
-				i++
-				moviesService.getmoviesHotApi(i++)
-				.then((res)=>{
-					// console.log(res)
-					this.setState({moviesHotList:this.state.moviesHotList.concat(res)})
-					myScroll.refresh()
-				})
+			
+			if(this.state.isshow){
+				if(myScroll.y - 150 < myScroll.maxScrollY  && i <= 8){
+					i++
+					moviesService.getmoviesHotApi(i)
+					.then((res)=>{
+						// console.log(res)
+						// console.log(i)
+						this.setState({moviesHotList:this.state.moviesHotList.concat(res)}, function() {
+							myScroll.refresh()
+						})
+						
+					})
+				}
 			}
+			
+			if (this.state.isShow) {
+				if (myScroll.y - 150 < myScroll.maxScrollY  && j < 20) {
+					j++
+					moviesService.getmoviesApi(j)
+					.then((res)=>{
+						this.setState({moviesList:this.state.moviesList.concat(res)}, function() {
+							myScroll.refresh()
+						})
+						
+					})
+				}
+			}
+
 		})
 	}
 }

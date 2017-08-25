@@ -1,4 +1,7 @@
 
+#city{
+    overflow: hidden;
+}
 #city .city-index-title{
      padding-left: 15px;
     font-size: 14px;

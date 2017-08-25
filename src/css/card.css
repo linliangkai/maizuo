@@ -13,18 +13,34 @@
     line-height: 45px;
     border-bottom: 1px solid #ff7100;
 }
+.list li:nth-child(1){
+    position: relative;
+}
+
+.list li:nth-child(1):after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    border-right: 1px solid orange;
+    right: -1px;
+    width: 1px;
+    height: 100%;
+    transform: scaleX(0.5);
+}
 
 .list li{
     float: left;
     width: 50%;
     font-size: 16px;
     text-align: center;
-    line-height: 45px;
+    line-height: 49px;
+    transition:all 0.3s ease;
 }
 
 .list li.active{
     color: #ff7100;
-    border-bottom: 4px solid #ff7100;
+    box-shadow: 0 -4px #ff7100 inset;
 }
 
 input{

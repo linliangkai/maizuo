@@ -1,5 +1,6 @@
-.page{
+#cinema{
     background: white;
+    overflow: auto
 }
 .title{
     height: 40px;
@@ -12,7 +13,7 @@
     cursor: pointer;
 }
 .cinema-list{
-    display: block;  
+    display: none; 
     background: white;
 }
 

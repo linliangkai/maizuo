@@ -6,7 +6,7 @@ function getmoviesHotApi(i){
     return new Promise((resolve,reject)=>{
         axios.get(`${API.moviesHotApi}?page=${i}&count=7`)
         .then((reponse)=>{
-            console.log(reponse)
+            // console.log(reponse)
             resolve(reponse.data.data.films)
         })
         .catch((error)=>{
@@ -15,11 +15,11 @@ function getmoviesHotApi(i){
     })
 }
 //影片下的即将上映电影
-function getmoviesApi(){
+function getmoviesApi(j){
     return new Promise((resolve,reject)=>{
-        axios.get(API.moviesApi)
+        axios.get(`${API.moviesApi}?page=${j}&count=5`)
         .then((reponse)=>{
-            console.log(reponse)
+            // console.log(reponse)
             resolve(reponse.data.data.films)
         })
         .catch((error)=>{

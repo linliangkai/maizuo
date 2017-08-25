@@ -12,7 +12,8 @@ const homeList2Api = "/v4/api/film/coming-soon"
 //?page=1&count=7
 const moviesHotApi = '/v4/api/film/now-playing'
 //影片页下的即将上映请求
-const moviesApi = '/v4/api/film/coming-soon?page=1&count=7'
+//?page=1&count=7
+const moviesApi = '/v4/api/film/coming-soon'
 
 //请求详情页面的数据
 //3828?__t=1503307712768

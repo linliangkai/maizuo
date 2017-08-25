@@ -57,7 +57,7 @@ export default class App extends Component{
 	}
 	
 	menuHandle(headerTitle){
-		console.log(headerTitle)
+		// console.log(headerTitle)
 		this.setState({showBar: !this.state.showBar})
 		if (headerTitle) {
 			this.setState({headerTitle})

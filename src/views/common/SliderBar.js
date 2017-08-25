@@ -2,7 +2,7 @@ import React , {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 import siderBarInfo from '../../services/siderBarInfo.js'
-
+import store from '../../store/'
 export default class SilderBar extends Component{
 	constructor(){
 		super()
@@ -34,6 +34,15 @@ export default class SilderBar extends Component{
 	
 	goPage(item){
 		// console.log(this.props.history)
+		// console.log(item.path)
+		if(item.path=='/movies'){
+			store.dispatch({
+				type:'change',
+				isshow:true,
+				isShow:false
+			})
+			this.props.history.push(item.path)
+		}
 		this.props.history.push(item.path)
 		this.props.hideHandle(item.header)
 	}

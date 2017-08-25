@@ -5,15 +5,20 @@ import homeService from '../services/homeService.js'
 
 import '../css/home.css'
 
+import store from '../store'
+
 let bannerSwiper = null;
 var myScroll = null;
 export default class Home extends Component{
-	constructor(){
+	constructor({history}){
+		
 		super();
+		// console.log(history)
 		this.state = {
 			bannerData : [],
 			listData:[],
-			list2Data:[]
+			list2Data:[],
+			history
 		}
 		
 	}
@@ -66,7 +71,7 @@ export default class Home extends Component{
 									})
 								}
 							</ul>
-							<div class="more-button">
+							<div onClick={this.btn1Action.bind(this)} class="more-button">
 								更多热映电影
 							</div>
 							<div class="dividing-line">
@@ -94,7 +99,7 @@ export default class Home extends Component{
 									})
 								}
 							</ul>
-							<div class="more-button">
+							<div onClick={this.btnAction.bind(this)} class="more-button">
 								更多即将上映电影
 							</div>
 						</div>
@@ -143,4 +148,21 @@ export default class Home extends Component{
 		
 	}
 
+	btnAction(){
+		store.dispatch({
+			type:'change',
+			isshow:false,
+			isShow:true
+		})
+		this.state.history.push('/Movies')
+	}
+
+	btn1Action(){
+		store.dispatch({
+			type:'change',
+			isshow:true,
+			isShow:false
+		})
+		this.state.history.push('/Movies')
+	}
 }

@@ -1,7 +1,8 @@
-.page{
+#movies{
     overflow: hidden;
 }
-.page .film-list-wrap{
+
+#movies .film-list-wrap{
     padding-left: 15px;
     padding-right: 15px;
     background-color: #f9f9f9;
@@ -25,7 +26,7 @@
     line-height: 46px;
     color: #6a6a6a
 }
-.active{
+.tab .active{
     border-bottom: 5px solid #fe6e00;
 }
 
