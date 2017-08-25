@@ -3,7 +3,7 @@ import axios from 'axios'
 //影院数据
 function getcinemaApi(){
     return new Promise((resolve,reject)=>{
-        axios.get(`${API.cinemaApi}`)
+        axios.get(`${API.cinemaApi}?__t=${new Date().getTime()}`)
         .then((reponse)=>{
             
             var arr = reponse.data.data.cinemas

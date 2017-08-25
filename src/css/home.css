@@ -2,6 +2,10 @@
 	overflow: auto;
 }
 
+#home{
+    overflow: hidden;
+}
+
 #home .home-banner{
     width: 100%;
 }

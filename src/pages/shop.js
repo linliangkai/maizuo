@@ -10,7 +10,8 @@ export default class Shop extends Component{
 		this.state={
 			List:[],
 			List1:[],
-			List2:[]
+			List2:[],
+			shoppingList:[]
 		}
 	}
 	render(){
@@ -84,6 +85,32 @@ export default class Shop extends Component{
 				</div>
 				<div>
 					<h2>— 好货精选 —</h2>
+					<div class="items">
+						<ul class="shopping-list">
+							{
+								this.state.shoppingList.map((item,index)=>{
+									return(
+										<li class="shopping-li" key={index}>
+											{
+												item.skuList.map((skuListItem,skuListindex)=>{
+													return(
+													<div key={index} class="logo">
+														<img src={skuListItem.image} alt=""/>
+														<div>{item.masterName}</div>
+														<div>
+															<span>¥{skuListItem.price/100}.00</span>
+															<span>已售{item.displaySalesCount}</span>
+														</div>
+													</div>
+													)
+												})
+											}
+										</li>
+									)
+								})
+							}
+						</ul>
+					</div>
 				</div>
 			</div>
 		)
@@ -98,10 +125,16 @@ export default class Shop extends Component{
 	componentWillMount(){
 		shopService.getshopApi()
 		.then((res)=>{
-			console.log(res)
+			// console.log(res)
 			this.setState({List:res.slice(0,8)})
 			this.setState({List1:res.slice(10,12)})
 			this.setState({List2:res.slice(12)})
+		})
+
+		shopService.getshoppingApi()
+		.then((res)=>{
+			console.log(res)
+			this.setState({shoppingList:res})
 		})
 	}
 }

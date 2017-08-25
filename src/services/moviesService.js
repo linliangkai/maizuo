@@ -2,9 +2,9 @@ import axios from 'axios'
 import API from '../api/index.js'
 
 //影片下的热映电影请求
-function getmoviesHotApi(){
+function getmoviesHotApi(i){
     return new Promise((resolve,reject)=>{
-        axios.get(API.moviesHotApi)
+        axios.get(`${API.moviesHotApi}?page=${i}&count=7`)
         .then((reponse)=>{
             console.log(reponse)
             resolve(reponse.data.data.films)

@@ -15,7 +15,7 @@ export default class AppHeader extends Component{
 			<header class="app-header">
 				<div class="icon-menu iconfont" onClick={this.menuAction.bind(this)}></div>
 				<h1 class="toolbar-title">{this.props.title}</h1>
-				<Link to="/city-list" class="city icon-arrow-down iconfont">{this.state.city}</Link>
+				<Link to="/city-list" class="city icon-arrow-down iconfont" >{this.state.city}</Link>
 				<Link to="/me" class="icon-person iconfont"></Link>
 			</header>
 		)
@@ -28,5 +28,9 @@ export default class AppHeader extends Component{
 		store.subscribe(()=>{
 			this.setState({city:store.getState().city})
 		})
+	}
+
+	city(){
+		this.props.cityAction()
 	}
 }
