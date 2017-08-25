@@ -18,14 +18,15 @@ export default class Home extends Component{
 			bannerData : [],
 			listData:[],
 			list2Data:[],
-			history
+			history,
+			isiscroll:true
 		}
 		
 	}
 	render(){
+		let top = this.state.isiscroll ? 'cpn-back-to-top-hide' : '';
 		return(
-			<div class="Home">
-				<div id="home" ref="box" class="page">
+				<div id="home" class="page" ref="box">
 					<div class="wrap">
 						<div ref="banner" class="swiper-container home-banner">
 							<div class="swiper-wrapper">
@@ -104,8 +105,13 @@ export default class Home extends Component{
 							</div>
 						</div>
 					</div>
+					<div class={ "cpn-back-to-top "+ top}>
+						<div onClick={this.toTopAction.bind(this)} class="circle">
+							<span class="icon-top iconfont"></span>
+						</div>
+					</div>
 				</div>
-			</div>
+
 		)
 	}
 	
@@ -117,19 +123,24 @@ export default class Home extends Component{
 //			res.push(res[1])
 			this.setState({bannerData:res1});
 			bannerSwiper.update()
+			myScroll.refresh()
 		})
 		//请求热映电影数据
 		homeService.gethomeListApi()
 		.then((res2)=>{
 			// console.log(res)
 			this.setState({listData:res2})
+			myScroll.refresh()
 		})
 		//请求既然上映电影数据
 		homeService.gethomeList2Api()
 		.then((res3)=>{
 			// console.log(res)
 			this.setState({list2Data:res3})
+			myScroll.refresh()
 		})
+
+		
 	}
 
 	componentDidMount(){
@@ -139,12 +150,24 @@ export default class Home extends Component{
 		//创建滚动视图
 		myScroll = new IScroll(this.refs.box, {
 			bounce: false, //开启弹簧效果
-			scrollbars: false //是否显示滚动条
+			scrollbars: false, //是否显示滚动条
+			probeType: 3
 		});
+		
+		
 		//监听滚动，刷新滚动视图
-		myScroll.on('scrollStart', ()=>{
+		myScroll.on('scroll', ()=>{
+			// console.log(123)
 			myScroll.refresh()
+			console.log(myScroll.y)
+			if(myScroll.y < -140){
+				this.setState({isiscroll:false})
+			}else if(myScroll.y > -140){
+				this.setState({isiscroll:true})
+			}
 		})
+
+		
 		
 	}
 
@@ -164,5 +187,9 @@ export default class Home extends Component{
 			isShow:false
 		})
 		this.state.history.push('/Movies')
+	}
+
+	toTopAction(){
+		myScroll.scrollTo(0,0,1000)
 	}
 }

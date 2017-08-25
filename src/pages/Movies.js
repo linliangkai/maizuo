@@ -15,12 +15,15 @@ export default class Movies extends Component {
 			isshow: store.getState().isshow,
 			isShow: store.getState().isShow,
 			moviesHotList:[],
-			moviesList:[]
+			moviesList:[],
+			isiscroll:true
 		}
 	}
 	render() {
 		let style1 = { display: this.state.isshow ? 'block' : 'none' }
 		let style2 = { display: this.state.isShow ? 'block' : 'none' }
+		let topstyle = this.state.isiscroll ? 'cpn-back-to-top-hide' : '';
+
 		return (
 				<div class="page" ref="box" id="movies">
 					<div class="wrap">
@@ -107,6 +110,11 @@ export default class Movies extends Component {
 							</div>
 						</div>
 					</div>
+					<div class={ "cpn-back-to-top "+ topstyle}>
+						<div onClick={this.toTopAction.bind(this)} class="circle">
+							<span class="icon-top iconfont"></span>
+						</div>
+					</div>
 				</div>
 		)
 	}
@@ -160,11 +168,15 @@ export default class Movies extends Component {
 		}
 
 		myScroll = new IScroll(this.refs.box, {
-			bounce: false
+			bounce: false,
+			scrollbars: true,
+			fadeScrollbars: true,
+			probeType: 3
 		});
 		//监听滚动，刷新滚动视图
 		let i = 1; 
 		let j = 1;
+
 		myScroll.on('scrollEnd', ()=>{
 			// console.log(myScroll.scrollerHeight)
 			// console.log(myScroll.y)
@@ -201,5 +213,18 @@ export default class Movies extends Component {
 			}
 
 		})
+
+		myScroll.on('scroll',()=>{
+			myScroll.refresh()
+			if(myScroll.y < -140){
+				this.setState({isiscroll:false})
+			}else if(myScroll.y > -140){
+				this.setState({isiscroll:true})
+			}
+		})
+	}
+
+	toTopAction(){
+		myScroll.scrollTo(0,0,1000)
 	}
 }
