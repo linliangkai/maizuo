@@ -16,116 +16,113 @@ export default class Shop extends Component{
 	}
 	render(){
 		return(
-			<div class="page">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="http://mall.s.maizuo.com/c32a841cc845c4d482d9d2fbd1c8404f.jpg" alt=""/>
-						</div>
-						<div class="swiper-slide">
-							<img src="http://mall.s.maizuo.com/041182a65a83235af256ef47c0eca869.jpg" alt=""/>							
+			<div class="page" ref="box2" id="shop">
+				<div class="wrap">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="http://mall.s.maizuo.com/c32a841cc845c4d482d9d2fbd1c8404f.jpg" alt=""/>
+							</div>
+							<div class="swiper-slide">
+								<img src="http://mall.s.maizuo.com/041182a65a83235af256ef47c0eca869.jpg" alt=""/>							
+							</div>
 						</div>
 					</div>
-				</div>
-				<ul class="shop-list">
-					{
-						this.state.List.map((item,index)=>{
-							return(
-								<li key={index}>
-									<img src={item.imageSrc} alt=""/>
-									<div class="shop-title">{item.name}</div>
-								</li>
-							)
-						})
-					}
-				</ul>
-				<div class="active-contain">
-					{
-						this.state.List1.map((item,index)=>{
-							return(
-								<div key={index} class="active-left">
-									<img src={item.imageSrc} alt=""/>
-								</div>
-							)
-						})
-					}
-				</div>
-				<div class="subject">
-					{
-						this.state.List2.map((item,index)=>{
-							return(
-								<div key={index} class="subject-center">
-									<div>
+					<ul class="shop-list">
+						{
+							this.state.List.map((item,index)=>{
+								return(
+									<li key={index}>
+										<img src={item.imageSrc} alt=""/>
+										<div class="shop-title">{item.name}</div>
+									</li>
+								)
+							})
+						}
+					</ul>
+					<div class="active-contain">
+						{
+							this.state.List1.map((item,index)=>{
+								return(
+									<div key={index} class="active-left">
 										<img src={item.imageSrc} alt=""/>
 									</div>
-									<div class="pic-list">
-										<ul>
-									{
-										item.products.map((productsItem,productsIndex)=>{
-											return(
-												<li key={productsIndex} class="control-list">
-													<div class="pic-area">
-														<img src={productsItem.image} alt=""/>
-													</div>
-													<p class="control-name">{productsItem.name.substring(0,6)}</p>
-													<p class="control-price">¥{productsItem.price/100}.00</p>
-												</li>
-											)
-										})
-									}
-											<div>
-												<span>全部</span>
-											</div>
-										</ul>
-									</div>
-								</div>
-							)
-						})
-					}
-				</div>
-				<div>
-					<h2>— 好货精选 —</h2>
-					<div class="items">
-						<ul class="shopping-list">
-							{
-								this.state.shoppingList.map((item,index)=>{
-									return(
-										<li class="shopping-li" key={index}>
-											{
-												item.skuList.map((skuListItem,skuListindex)=>{
-													return(
-													<div key={index} class="logo">
-														<img src={skuListItem.image} alt=""/>
-														<div>{item.masterName}</div>
-														<div>
-															<span>¥{skuListItem.price/100}.00</span>
-															<span>已售{item.displaySalesCount}</span>
+								)
+							})
+						}
+					</div>
+					<div class="subject">
+						{
+							this.state.List2.map((item,index)=>{
+								return(
+									<div key={index} class="subject-center">
+										<div>
+											<img src={item.imageSrc} alt=""/>
+										</div>
+										<div class="pic-list">
+											<ul>
+										{
+											item.products.map((productsItem,productsIndex)=>{
+												return(
+													<li key={productsIndex} class="control-list">
+														<div class="pic-area">
+															<img src={productsItem.image} alt=""/>
 														</div>
-													</div>
-													)
-												})
-											}
-										</li>
-									)
-								})
-							}
-						</ul>
+														<p class="control-name">{productsItem.name.substring(0,6)}</p>
+														<p class="control-price">¥{productsItem.price/100}.00</p>
+													</li>
+												)
+											})
+										}
+												<div>
+													<span>全部</span>
+												</div>
+											</ul>
+										</div>
+									</div>
+								)
+							})
+						}
+					</div>
+					<div>
+						<h2>— 好货精选 —</h2>
+						<div class="items">
+							<ul class="shopping-list">
+								{
+									this.state.shoppingList.map((item,index)=>{
+										return(
+											<li class="shopping-li" key={index}>
+												{
+													item.skuList.map((skuListItem,skuListindex)=>{
+														return(
+														<div key={index} class="logo">
+															<img src={skuListItem.image} alt=""/>
+															<div>{item.masterName}</div>
+															<div>
+																<span>¥{skuListItem.price/100}.00</span>
+																<span>已售{item.displaySalesCount}</span>
+															</div>
+														</div>
+														)
+													})
+												}
+											</li>
+										)
+									})
+								}
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		)
 	}
 
-	componentDidMount(){
-		var mySwiper = new Swiper ('.swiper-container', {
-			loop:true
-		})        
-	}
-
 	componentWillMount(){
 		shopService.getshopApi()
 		.then((res)=>{
 			// console.log(res)
+			
 			this.setState({List:res.slice(0,8)})
 			this.setState({List1:res.slice(10,12)})
 			this.setState({List2:res.slice(12)})
@@ -133,8 +130,17 @@ export default class Shop extends Component{
 
 		shopService.getshoppingApi()
 		.then((res)=>{
-			console.log(res)
+			// console.log(res)
 			this.setState({shoppingList:res})
+		})
+
+		
+	}
+
+	componentDidMount(){
+		
+		var mySwiper = new Swiper ('.swiper-container', {
+			loop:true
 		})
 	}
 }

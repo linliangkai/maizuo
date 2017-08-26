@@ -32,7 +32,7 @@ function getdetailsApi(id){
     return new Promise((resolve,reject)=>{
         axios.get(`${API.detailsApi}${id}?__t${new Date().getTime()}`)
         .then((reponse)=>{
-            console.log(reponse)
+            // console.log(reponse)
             var obj = {}
             obj.img = reponse.data.data.film.cover.origin
             obj.director = reponse.data.data.film.director

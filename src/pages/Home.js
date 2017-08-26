@@ -159,7 +159,7 @@ export default class Home extends Component{
 		myScroll.on('scroll', ()=>{
 			// console.log(123)
 			myScroll.refresh()
-			console.log(myScroll.y)
+			// console.log(myScroll.y)
 			if(myScroll.y < -140){
 				this.setState({isiscroll:false})
 			}else if(myScroll.y > -140){

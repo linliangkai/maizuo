@@ -5,7 +5,7 @@ function getcityApi(){
    return new Promise((resolve,reject)=>{
         axios.get(`${API.cityApi}?__t=${new Date().getTime()}`)
         .then((reponse)=>{
-            console.log(reponse)
+            // console.log(reponse)
             resolve(reponse.data.data.cities)
         })
         .catch((error)=>{

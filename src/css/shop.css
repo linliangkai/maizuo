@@ -1,3 +1,6 @@
+#shop{
+    overflow: auto;
+}
 .swiper-wrapper .swiper-slide img{
     width: 100%;
 }

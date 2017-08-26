@@ -35,7 +35,7 @@ export default class Details extends Component{
 	componentWillMount(){
 		moviesService.getdetailsApi(this.state.history.location.state.id)
 		.then((res)=>{
-			console.log(res)
+			// console.log(res)
 			this.setState({DetailsList:res})
 			//premiereAt数据的时间戳
 			//获取月份及日期

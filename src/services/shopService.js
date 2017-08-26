@@ -7,7 +7,7 @@ function getshopApi(){
         axios.get(`${API.shopApi}`)
         .then((response)=>{
             // console.log(response.data)
-            resolve(response.data.data)
+            resolve(response.data.data) 
         })
         .catch((error)=>{
             console.log(error)
@@ -20,7 +20,7 @@ function getshoppingApi(){
     return new Promise((resolve,reject)=>{
         axios.get(`${API.shoppingApi}`)
         .then((reponse)=>{
-            console.log(reponse)
+            // console.log(reponse)
             resolve(reponse.data.data.list)
         })
         .catch((error)=>{

@@ -12,7 +12,7 @@ let myScroll = null
 export default class City extends Component{
 	constructor({history}){
 		super();
-		console.log(history)
+		// console.log(history)
 		this.state = {
 			className:'',
 			history,
@@ -94,7 +94,7 @@ export default class City extends Component{
 		//请求数据
 		cityService.getcityApi()
 		.then((res)=>{
-			console.log(res)
+			// console.log(res)
 			this.setState({CityList:res})
 		})
 		
